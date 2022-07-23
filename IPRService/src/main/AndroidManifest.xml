@@ -12,7 +12,7 @@
         <service
             android:name="com.jabin.ipr.RenderService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
     }
 
     @Override
-    public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surfaceTexture, int i, int i1) {
+    public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surfaceTexture, int width, int height) {
         Log.d("mjp","onSurfaceTextureAvailable");
         try {
-            service.onSurfaceTextureAvailable(new Surface(surfaceTexture),i,i1);
+            service.onSurfaceTextureAvailable(new Surface(surfaceTexture),width,height);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements TextureView.Surfa
            switch (view.getId()){
         case R.id.connect:
              Intent intent = new Intent();
-             intent.setComponent(new ComponentName("com.example.irenderservice","com.example.ipr.RenderService"));
+             intent.setComponent(new ComponentName("com.jabin.ipr.service","com.jabin.ipr.RenderService"));
              bindService(intent, new ServiceConnection() {
                  @Override
                  public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
